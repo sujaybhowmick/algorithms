@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public abstract class AbstractSMapTest {
+public abstract class AbstractLookupMapTest {
 
     private static final int TEST_SIZE = 1000;
 
