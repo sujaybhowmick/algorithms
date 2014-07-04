@@ -3,10 +3,17 @@ package org.algorithms.hashing;
 /**
  * Created by sujay on 7/4/14.
  */
-public class LookupHashTable extends AbstractLookupMap {
+public class LookupHashTable implements LookupMap {
+
+    protected static final int DEFAULT_CAPACITY = 10;
+
+    protected Object values[];
+
+    protected int size;
 
     public LookupHashTable(int capacity){
-        super(capacity);
+        assert capacity > 0 : "Capacity cannot be less than 0";
+        values = new Object[capacity];
     }
 
     public LookupHashTable(){

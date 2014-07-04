@@ -9,7 +9,7 @@ public abstract class AbstractLookupMapTest {
 
     private static final int TEST_SIZE = 1000;
 
-    private LookupMap<String> hashTable;
+    private LookupMap hashTable;
 
     public abstract LookupMap createHashTable(int capacity);
 
