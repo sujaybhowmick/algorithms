@@ -114,6 +114,11 @@ public class LookupHashTable extends AbstractLookupMap {
         }
         return -1;
     }
+
+    /**
+     * returns the size of the hash table
+     * @return
+     */
     @Override
     public int size() {
         return size;
