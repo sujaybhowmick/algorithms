@@ -23,6 +23,14 @@ public class LookupHashTable extends AbstractLookupMap {
         }
     }
 
+    /**
+     * This method return an index in the array using the hashing function
+     * used in 'startingIndexFor' method. It searches for a open slot with the
+     * bounds specified by hashed index value and the array length.
+     *
+     * @param value
+     * @return the available index in the array
+     */
     private int indexFor(Object value) {
        int start = startingIndexFor(value);
        int index = indexFor(value, start, values.length);
@@ -46,7 +54,7 @@ public class LookupHashTable extends AbstractLookupMap {
 
     /**
      * This is the hashing function using mod on objects
-     * hashcode
+     * hash code
      * @param value
      * @return
      */
@@ -81,18 +89,18 @@ public class LookupHashTable extends AbstractLookupMap {
      * This method searches array if the object exists with in the bounds
      * constrained by the hash code calculated index and the array length. If
      * the object is not found within the bounds a brute force search is done
-     * through the entire array (this can happen if there is collision of
-     * hash code calculated index)
-     * If the
+     * through the lower side of the array (this can happen if there is
+     * collision of hash key used to calculate index)
+     *
      * @param value
-     * @return
+     * @return index of the value in array
      */
     private int indexOf(Object value) {
         int start = startingIndexFor(value);
         int index = indexOf(value, start, values.length);
         if(index == -1){
             // brute force search
-            index = indexOf(value, 0, values.length);
+            index = indexOf(value, 0, start);
         }
         return index;
     }
