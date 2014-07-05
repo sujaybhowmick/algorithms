@@ -10,7 +10,6 @@ public class StopWatch {
     private long endTime;
 
     public StopWatch(){
-
     }
 
     public void start(){
@@ -19,6 +18,11 @@ public class StopWatch {
 
     public void stop(){
         endTime = System.currentTimeMillis();
+    }
+
+    public void reset(){
+        startTime = 0;
+        endTime = 0;
     }
 
     public long getTotalTime(){

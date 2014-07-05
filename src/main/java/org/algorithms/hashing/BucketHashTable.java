@@ -7,14 +7,14 @@ import java.util.List;
 /**
  * Created by sujay on 7/4/14.
  */
-public class BucketLookupMap implements LookupMap{
+public class BucketHashTable implements LookupMap{
     private float loadFactor;
 
     private List[] buckets;
 
     private int size;
 
-    public BucketLookupMap(int capacity, float loadFactor){
+    public BucketHashTable(int capacity, float loadFactor){
         assert capacity > 0 : "Capacity can not be less than 0";
         assert loadFactor > 0 : "Load factor can not be less than 0";
         this.loadFactor = loadFactor;
@@ -28,8 +28,8 @@ public class BucketLookupMap implements LookupMap{
     }
 
     private void resize() {
-        BucketLookupMap copy = new
-                BucketLookupMap(buckets.length * 2, loadFactor);
+        BucketHashTable copy = new
+                BucketHashTable(buckets.length * 2, loadFactor);
         for(int i = 0; i < buckets.length; i++){
             if(buckets[i] != null) {
                 copy.addAll(buckets[i].iterator());

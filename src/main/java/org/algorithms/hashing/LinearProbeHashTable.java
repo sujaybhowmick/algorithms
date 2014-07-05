@@ -3,7 +3,7 @@ package org.algorithms.hashing;
 /**
  * Created by sujay on 7/4/14.
  */
-public class LookupHashTable implements LookupMap {
+public class LinearProbeHashTable implements LookupMap {
 
     protected static final int DEFAULT_CAPACITY = 10;
 
@@ -11,12 +11,12 @@ public class LookupHashTable implements LookupMap {
 
     protected int size;
 
-    public LookupHashTable(int capacity){
+    public LinearProbeHashTable(int capacity){
         assert capacity > 0 : "Capacity cannot be less than 0";
         values = new Object[capacity];
     }
 
-    public LookupHashTable(){
+    public LinearProbeHashTable(){
         this(DEFAULT_CAPACITY);
     }
 
@@ -44,7 +44,7 @@ public class LookupHashTable implements LookupMap {
         if(index == -1){
             //brute force search
             index = indexFor(value, 0, start);
-            assert index == -1 : "No free slots left";
+            assert index != -1 : "No free slots left";
         }
         return index;
     }
@@ -71,14 +71,14 @@ public class LookupHashTable implements LookupMap {
     }
 
     private void ensureCapacity() {
-        if(size == values.length){
+        if(size() == values.length){
             resize();
         }
     }
 
     private void resize() {
-        LookupHashTable copy = new
-                LookupHashTable(values.length * 2);
+        LinearProbeHashTable copy = new
+                LinearProbeHashTable(values.length * 2);
         for(int i = 0; i < values.length; i++){
             if(values[i] != null){
                 copy.add(values[i]);

@@ -1,12 +1,12 @@
 package org.algorithms.hashing;
 
-public class BucketLookupMapTest extends AbstractLookupMapTest {
+public class BucketHashTableTest extends AbstractLookupMapTest {
 
     static final int DEFAULT_CAPACITY = 10;
 
     @Override
     public LookupMap createHashTable(int capacity) {
-        return new BucketLookupMap(capacity, 0.75f);
+        return new BucketHashTable(capacity, 0.75f);
     }
 
     @Override
